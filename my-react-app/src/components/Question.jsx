@@ -7,7 +7,7 @@ const Question = ({ question, onAnswer, showResult, isCorrect, onNext }) => {
         {question.question}
       </div>
       
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="space-y-3">
         {question.choices.map((choice, index) => (
           <button
             key={index}
@@ -21,8 +21,10 @@ const Question = ({ question, onAnswer, showResult, isCorrect, onNext }) => {
             onClick={() => onAnswer(index)}
             disabled={showResult}
           >
-            <span className="inline-block w-6">{index + 1}.</span>
-            {choice}
+            <div className="flex items-start">
+              <span className="inline-block w-8 flex-shrink-0">{index + 1}.</span>
+              <span>{choice}</span>
+            </div>
           </button>
         ))}
       </div>
